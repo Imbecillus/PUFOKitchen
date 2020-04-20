@@ -9,7 +9,11 @@ Images are loaded, transforms applied, and then converted to PyTorch tensors in 
 
 ## make_splits.py
 Takes the full dataset directory and creates two subsets, using a 70:30 train/test-split for each class. Selection of images within the classes is random.
+
 Usage: python make_splits.py "path/to/datafolder" (opt: list of classes to be ignored)
 
 ## train.py
-This is were the training will happen. Currently only displays a random selection of images from the dataset folder.
+This is were the training will happen. 
+
+## test_dataset.py
+Displays a random selection of images from the dataset folder.

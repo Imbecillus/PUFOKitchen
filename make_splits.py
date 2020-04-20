@@ -43,8 +43,9 @@ for c in classes:
     os.mkdir(os.path.join(datafolder_test, c))
 
     # Get random selection of files
-    num_train = len(files)
-    trainfiles = random.choices(files, k=int(0.7 * num_train))
+    num_train = int(0.7 * len(files))
+    random.shuffle(files)
+    trainfiles = files[0:num_train]
 
     # Copy files
     for f in files:

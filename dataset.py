@@ -8,8 +8,6 @@ from torch.utils.data import Dataset
 
 def load_image(path):
     image = imageio.imread(path)
-    # image = torch.tensor(image, dtype=torch.double)
-    # image = image / 255
     image = Image.fromarray(image)
     return image
 
@@ -39,7 +37,6 @@ class PUFOKitchen(Dataset):
                 entry = (filepath, class_number)
                 self.image_list.append(entry)
 
-
     def __getitem__(self, number):
         path, c = self.image_list[number]
 
@@ -47,7 +44,7 @@ class PUFOKitchen(Dataset):
         image = Image.fromarray(image)                  # Convert to PIL format
         image = self.data_transforms(image)             # Apply transforms
         image = np.array(image)                         # Convert to PyTorch tensor
-        image = torch.tensor(image, dtype=torch.double) 
+        image = torch.tensor(image, dtype=torch.float) 
         image = image / 255
         image = image.permute(2, 0, 1)                  # Reshape the tensor to [C,H,W]-format
 
